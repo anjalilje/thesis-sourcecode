@@ -96,8 +96,7 @@ parser.add_argument('-n', '--ncls', nargs='?', type=int, default=5, help='Number
 parser.add_argument('-ta', '--tasks', nargs='?', type=int, default=3, help='Number of tasks')
 parser.add_argument('-nn', '--net_name', nargs='?', type=str, default="vgg16arch_newst", help='Name of the network')
 parser.add_argument('-e', '--epochs', nargs='?', type=int, default=200, help='Number of epochs')
-parser.add_argument('-i', '--n_iters', nargs='?', type=int, default=100, help='Number of iterations per epoch')
-parser.add_argument('-b', '--batch_size', nargs='?', type=int, default=32, help='Batch size')
+parser.add_argument('-b', '--batch_size', nargs='?', type=int, default=64, help='Batch size')
 parser.add_argument('-lr', '--learning_rate', nargs='?', type=float, default=0.0001, help='Learning rate')
 
 ############### TRAIN DATA ###############
@@ -137,7 +136,6 @@ n_classes = args.ncls
 n_tasks = args.tasks
 net_name = args.net_name
 n_epochs = args.epochs
-iter_per_epoch = args.n_iters
 batch_size = args.batch_size
 learning_rate = args.learning_rate
 
