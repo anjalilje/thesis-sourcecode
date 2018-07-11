@@ -21,7 +21,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--disease', nargs='?', type=str, default='Eczema', help='Name of disease')
 parser.add_argument('-f', '--folder', nargs='?', type=str, default='Skin', help='Name of folder with disease images')
-parser.add_argument('-ip', '--inpath', nargs='?', type=str, default='/Users/eva/Data/AUH', help='Path to disease folder')
+parser.add_argument('-ip', '--inpath', nargs='?', type=str, default='../Data', help='Path to disease folder')
 parser.add_argument('-os', '--outsize', nargs='?', type=int, default=250, help='Size of output images')
 
 args = parser.parse_args()
