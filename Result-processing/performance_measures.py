@@ -171,54 +171,5 @@ for i in range(3):
 fig.tight_layout()
 plt.savefig("../AUROC.png", bbox_inches="tight")
 
-## PLOT HISTOGRAM OF CERTAINIES
-
-right0, wrong0 = certainties(lab_true0, lab_pred0, probs0)
-right2, wrong2 = certainties(lab_true2, lab_pred2, probs2)
-
-bins = np.linspace(0.5, 1.0, 11)
-
-top = 326
-int_len = 25
-
-fig = plt.figure(figsize=(9, 4))
-ax = plt.subplot(1,2,1)
-ax.hist([right0, wrong0], bins, color=['green', 'red'], alpha=0.5, label=['Correct', 'Incorrect'])
-ax.set_anchor('S')
-ax.spines["top"].set_visible(False)    
-ax.spines["bottom"].set_visible(False)    
-ax.spines["right"].set_visible(False)    
-ax.spines["left"].set_visible(False)
-ax.set_xticklabels(['50', '55', '60', '65', '70', '75', '80', '85', '90', '95', '100'])
-ax.set_xticks(np.arange(0.5, 1.01, 0.05))
-ax.set_yticks(np.arange(0, top, int_len))
-ax.set_xlim(0.5,1.001)
-ax.set_ylim(0,top)
-plt.ylabel("Frequency")
-plt.tick_params(axis="both", which="both", bottom=False, top=False, labelbottom=True, left=False, right=False, labelleft=True)
-plt.xlabel("Certainty, %")
-plt.grid(color="black", alpha=0.2, linestyle='--')
-plt.legend(title = 'Task 1', bbox_to_anchor=(0., 1.02, 1., .102), loc=8, ncol=2, borderaxespad=0.)
-
-ax = plt.subplot(1,2,2)
-ax.hist([right2, wrong2], bins, color=['green', 'red'], alpha=0.5, label=['Correct', 'Incorrect'])
-ax.set_anchor('S')
-ax.spines["top"].set_visible(False)    
-ax.spines["bottom"].set_visible(False)    
-ax.spines["right"].set_visible(False)    
-ax.spines["left"].set_visible(False)
-ax.set_xticklabels(['50', '55', '60', '65', '70', '75', '80', '85', '90', '95', '100'])
-ax.set_xticks(np.arange(0.5, 1.01, 0.05))
-ax.set_yticks(np.arange(0, top, int_len))
-ax.set_xlim(0.5,1.001)
-ax.set_ylim(0,top)
-plt.tick_params(axis="both", which="both", bottom=False, top=False, labelbottom=True, left=False, right=False, labelleft=False)
-plt.xlabel("Certainty, %")
-plt.grid(color="black", alpha=0.2, linestyle='--')
-plt.legend(title = 'Task 3', bbox_to_anchor=(0., 1.02, 1., .102), loc=8, ncol=2, borderaxespad=0.)
-
-fig.tight_layout()
-plt.savefig("../hist.png", bbox_inches="tight")
-
 
 
