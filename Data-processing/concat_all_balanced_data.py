@@ -9,11 +9,11 @@ import numpy as np
 
 ## Arguments
 parser = argparse.ArgumentParser()
-parser.add_argument('-p0', '--path0', nargs='?', type=str, default='/Users/eva/Desktop/Psoriasis', help='Path to input files of class 0')
-parser.add_argument('-p1', '--path1', nargs='?', type=str, default='/Users/eva/Desktop/Eczema', help='Path to input files of class 1')
-parser.add_argument('-p2', '--path2', nargs='?', type=str, default='/Users/eva/Desktop/Acne_vulgaris', help='Path to input files of class 2')
-parser.add_argument('-p3', '--path3', nargs='?', type=str, default='/Users/eva/Desktop/Rosacea', help='Path to input files of class 3')
-parser.add_argument('-p4', '--path4', nargs='?', type=str, default='/Users/eva/Desktop/Mycosis_fungoides', help='Path to input files of class 4')
+parser.add_argument('-p0', '--path0', nargs='?', type=str, default='../Psoriasis', help='Path to input files of class 0')
+parser.add_argument('-p1', '--path1', nargs='?', type=str, default='../Eczema', help='Path to input files of class 1')
+parser.add_argument('-p2', '--path2', nargs='?', type=str, default='../Acne_vulgaris', help='Path to input files of class 2')
+parser.add_argument('-p3', '--path3', nargs='?', type=str, default='../Rosacea', help='Path to input files of class 3')
+parser.add_argument('-p4', '--path4', nargs='?', type=str, default='../Mycosis_fungoides', help='Path to input files of class 4')
 
 parser.add_argument('-t0', '--train0', nargs='?', type=int, default=5236, help='Training size for class 0')
 parser.add_argument('-t1', '--train1', nargs='?', type=int, default=4280, help='Training size for class 1')
@@ -109,14 +109,14 @@ X_test_4 = np.memmap('{}/X_test'.format(path4), dtype='float32', mode='c', shape
 print('Test 4 done')
 
 ## Initiliaize memory maps for total training, validation and testing sets
-X_train = np.memmap("/Users/eva/Desktop/Data/X_train", dtype='float32', mode='w+', shape=(train_size, img_s, img_s, n_channels))
-X_valid = np.memmap("/Users/eva/Data/AUH/X_valid", dtype='float32', mode='w+', shape=(val_size, img_s, img_s, n_channels))
-X_test = np.memmap("/Users/eva/Data/AUH/X_test", dtype='float32', mode='w+', shape=(test_size, img_s, img_s, n_channels))
+X_train = np.memmap("../X_train", dtype='float32', mode='w+', shape=(train_size, img_s, img_s, n_channels))
+X_valid = np.memmap("../X_valid", dtype='float32', mode='w+', shape=(val_size, img_s, img_s, n_channels))
+X_test = np.memmap("../X_test", dtype='float32', mode='w+', shape=(test_size, img_s, img_s, n_channels))
 
 ## Initialize memory maps for total training, validation and testing labels 
-Y_train = np.memmap("/Users/eva/Data/AUH/Y_train", dtype='int', mode='w+', shape=(train_size, 1))
-Y_valid = np.memmap("/Users/eva/Data/AUH/Y_valid", dtype='int', mode='w+', shape=(val_size, 1))
-Y_test = np.memmap("/Users/eva/Data/AUH/Y_test", dtype='int', mode='w+', shape=(test_size, 1))
+Y_train = np.memmap("../Y_train", dtype='int', mode='w+', shape=(train_size, 1))
+Y_valid = np.memmap("../Y_valid", dtype='int', mode='w+', shape=(val_size, 1))
+Y_test = np.memmap("../Y_test", dtype='int', mode='w+', shape=(test_size, 1))
 
 ## Concatenate data
 X_train[:train_size] = np.concatenate((X_train_0, X_train_1, X_train_2, X_train_2, X_train_3, X_train_4, X_train_4))
