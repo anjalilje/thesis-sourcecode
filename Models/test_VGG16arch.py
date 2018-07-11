@@ -71,7 +71,7 @@ def batch(iterable, batch_size):
 ################### ARGUMENTS AND PARAMETERS ###################
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-p', '--path', nargs='?', type=str, default='../Data_nocrop', help='Path to data')
+parser.add_argument('-p', '--path', nargs='?', type=str, default='../Data_crop', help='Path to data')
 parser.add_argument('-te', '--test', nargs='?', type=int, default=1657, help='Test size')
 
 parser.add_argument('-m', '--modp', nargs='?', type=str, default='../Models/', help='Path for models')
